@@ -14,21 +14,31 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	
 	<section class="container">
-	<div class="section">
-		<h5>Formulario de login</h5>
-		<!-- esto es un comentario -->
-		<c:if test="${not empty mierror}">
-			<div class="card-panel">
-	      		<span class="red-text text-darken-2">${mierror}</span>
-	    	</div>			
-		</c:if>
-		<form action="login" method="POST">
-			<input type="email" name="email" class="${errorclass}" placeholder="Email" value="juana@e.es"> 
-			<input
-				type="password" name="password" class="${errorclass}" placeholder="Contraseña" value="juanason_1">
-			<button class="btn waves-effect waves-light" type="submit" name="action">Enviar</button>
-		</form>
-	<div>
+	
+	   <div class="row">
+        <div class="col s12 m8 offset-m2 l6 offset-l3 center">
+          <div class="card light-green lighten-5">
+            <div class="card-content">
+              <span class="card-title">Acceso a la Gestión de Proyectos</span>
+		 
+				<c:if test="${not empty mierror}">
+					<div class="card-panel">
+			      		<span class="red-text text-darken-2">${mierror}</span>
+			    	</div>			
+				</c:if>
+				<form action="login" method="POST">
+					<input type="email" name="email" class="${errorclass}" placeholder="Email" value="juana@e.es"> 
+					<input
+						type="password" name="password" class="${errorclass}" placeholder="Contraseña" value="juanason_1">
+					<button class="btn waves-effect waves-light light-green darken-4" type="submit" name="action">Acceder</button>
+				</form>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
 	</section>
 
 	<jsp:include page="footer.jsp"></jsp:include>
