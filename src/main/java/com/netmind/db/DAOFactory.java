@@ -13,8 +13,8 @@ public class DAOFactory {
 	public Object getDAO(String daoType){
 		switch (daoType) {
 			case "usuario": return (Object)UsuarioDAOImpl.getInstance();
-			case "maquillaje": return (Object)MaquillajeDAOImpl.getInstance();
-			case "compra": return (Object)CompraDAOImpl.getInstance();
+			case "maquillaje": return (Object)ProyectosDAOImpl.getInstance();
+			case "compra": return (Object)TareasDAOImpl.getInstance();
 			default: return null;
 		}
 	}
