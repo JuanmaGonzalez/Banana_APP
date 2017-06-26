@@ -12,7 +12,7 @@
 
       <ul id="nav-mobile" class="side-nav">
         <li><a href="lista_maquillajes">Lista</a></li>
-        <li><a href="comprar">Comprar</a></li>
+        <li><a href="comprar">Añadir Proyecto</a></li>
         <li><a href="logout"><i class="material-icons">power_settings_new</i></a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>

@@ -12,8 +12,7 @@
 			<h6>Hola ${usuario.nombre}</h6>
 			<h5>Aquí está la lista de Proyectos:</h5>
 
-			<table
-				class="responsive-table highlight light-green lighten-5 z-depth-3">
+			<table class="responsive-table highlight light-green lighten-5 z-depth-3">
 				<thead>
 					<tr>
 						<th>Código</th>
