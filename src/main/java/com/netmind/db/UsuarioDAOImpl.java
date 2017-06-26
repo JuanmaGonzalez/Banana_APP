@@ -36,8 +36,7 @@ public final class UsuarioDAOImpl extends UsuarioDAO {
 			if (rs.next()) {
 
 				usuarioADevolver = new Usuario(rs.getInt("uid"), rs.getString("nombre"), rs.getString("apellido"),
-						rs.getString("email"), rs.getString("coquetitud"), rs.getDouble("saldo"), "",
-						rs.getDate("nacimiento"), rs.getInt("activo"));
+						rs.getString("email"),rs.getString("password"));
 			}
 
 			pstm.close();
@@ -87,8 +86,7 @@ public final class UsuarioDAOImpl extends UsuarioDAO {
 			if (rs.next()) {
 
 				usuarioADevolver = new Usuario(rs.getInt("uid"), rs.getString("nombre"), rs.getString("apellido"),
-						rs.getString("email"), rs.getString("coquetitud"), rs.getDouble("saldo"), "",
-						rs.getDate("nacimiento"), rs.getInt("activo"));
+						rs.getString("email"),rs.getString("password") );
 			}
 
 			pstm.close();

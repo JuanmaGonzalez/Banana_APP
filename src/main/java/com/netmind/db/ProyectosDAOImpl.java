@@ -7,23 +7,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import com.netmind.models.Maquillaje;
+import com.netmind.models.Proyecto;
 
-public final class MaquillajeDAOImpl extends MaquillajeDAO {
+public final class ProyectosDAOImpl extends ProyectosDAO {
 	private static Logger logger = Logger.getLogger("MaquillajeDaoImpl");
 	
-	private static MaquillajeDAOImpl instance = null;
+	private static ProyectosDAOImpl instance = null;
 
-	public static MaquillajeDAOImpl getInstance() {
+	public static ProyectosDAOImpl getInstance() {
 		if (instance == null) {
-			instance = new MaquillajeDAOImpl();
+			instance = new ProyectosDAOImpl();
 		}
 		return instance;
 	}
 	
 	@Override
-	public Maquillaje getMaquillaje(int mid) {
-		Maquillaje maquillajeADevolver = null;
+	public Proyecto getMaquillaje(int mid) {
+		Proyecto maquillajeADevolver = null;
 
 		try {
 			Connection conn = this.datasource.getConnection();
@@ -36,7 +36,7 @@ public final class MaquillajeDAOImpl extends MaquillajeDAO {
 
 			if (rs.next()) {
 
-				maquillajeADevolver = new Maquillaje(rs.getInt("mid"), rs.getString("codigo"), rs.getString("marca"),
+				maquillajeADevolver = new Proyecto(rs.getInt("pid"), rs.getString("codigo"), rs.getString("marca"),
 						rs.getString("tipo"), rs.getInt("precio"), rs.getInt("existencias"));
 			}
 
@@ -60,20 +60,20 @@ public final class MaquillajeDAOImpl extends MaquillajeDAO {
 	}
 
 	@Override
-	public boolean insertMaquillaje(Maquillaje cosmetico) {
+	public boolean insertMaquillaje(Proyecto cosmetico) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean updateMaquillaje(Maquillaje cosmetico) {
+	public boolean updateMaquillaje(Proyecto cosmetico) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public List<Maquillaje> getUserMaquillajes(int uid) {
-		List<Maquillaje> listADevolver = new ArrayList<Maquillaje>();
+	public List<Proyecto> getUserMaquillajes(int uid) {
+		List<Proyecto> listADevolver = new ArrayList<Proyecto>();
 
 		try {
 			Connection conn = this.datasource.getConnection();
@@ -86,7 +86,7 @@ public final class MaquillajeDAOImpl extends MaquillajeDAO {
 			ResultSet rs = pstm.executeQuery();
 
 			while (rs.next()) {
-				listADevolver.add(new Maquillaje(rs.getInt("mid"), rs.getString("codigo"), rs.getString("marca"),
+				listADevolver.add(new Proyecto(rs.getInt("mid"), rs.getString("codigo"), rs.getString("marca"),
 						rs.getString("tipo"), rs.getInt("precio"), rs.getInt("existencias")));
 			}
 
@@ -105,8 +105,8 @@ public final class MaquillajeDAOImpl extends MaquillajeDAO {
 	}
 
 	@Override
-	public List<Maquillaje> getMaquillajes() {
-		List<Maquillaje> listADevolver = new ArrayList<Maquillaje>();
+	public List<Proyecto> getMaquillajes() {
+		List<Proyecto> listADevolver = new ArrayList<Proyecto>();
 
 		try {
 			Connection conn = this.datasource.getConnection();
@@ -118,7 +118,7 @@ public final class MaquillajeDAOImpl extends MaquillajeDAO {
 			ResultSet rs = pstm.executeQuery();
 
 			while (rs.next()) {
-				listADevolver.add(new Maquillaje(rs.getInt("mid"), rs.getString("codigo"), rs.getString("marca"),
+				listADevolver.add(new Proyecto(rs.getInt("mid"), rs.getString("codigo"), rs.getString("marca"),
 						rs.getString("tipo"), rs.getInt("precio"), rs.getInt("existencias")));
 			}
 

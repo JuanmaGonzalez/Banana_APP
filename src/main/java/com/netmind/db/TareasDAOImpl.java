@@ -6,24 +6,24 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.logging.Logger;
 
-import com.netmind.models.Compra;
-import com.netmind.models.Maquillaje;
+import com.netmind.models.Tarea;
+import com.netmind.models.Proyecto;
 
-public final class CompraDAOImpl extends CompraDAO {
+public final class TareasDAOImpl extends TareasDAO {
 	private static Logger logger = Logger.getLogger("CompraDAOImpl");
 
-	private static CompraDAOImpl instance = null;
+	private static TareasDAOImpl instance = null;
 
-	public static CompraDAOImpl getInstance() {
+	public static TareasDAOImpl getInstance() {
 		if (instance == null) {
-			instance = new CompraDAOImpl();
+			instance = new TareasDAOImpl();
 		}
 		return instance;
 	}
 
 	@Override
-	public Compra getCompra(int cid) {
-		Compra compraADevolver = null;
+	public Tarea getCompra(int cid) {
+		Tarea compraADevolver = null;
 
 		try {
 			Connection conn = this.datasource.getConnection();
@@ -33,13 +33,13 @@ public final class CompraDAOImpl extends CompraDAO {
 			pstm.setInt(1, cid);
 			
 			UsuarioDAO uDAO=(UsuarioDAO)UsuarioDAOImpl.getInstance();
-			MaquillajeDAO mDAO=(MaquillajeDAO)MaquillajeDAOImpl.getInstance();
+			ProyectosDAO mDAO=(ProyectosDAO)ProyectosDAOImpl.getInstance();
 
 			ResultSet rs = pstm.executeQuery();
 
 			if (rs.next()) {
 
-				compraADevolver = new Compra(cid,
+				compraADevolver = new Tarea(cid,
 						uDAO.getUsuario(rs.getInt("usuario")),
 						mDAO.getMaquillaje(rs.getInt("cosmetico")), 
 						rs.getInt("cantidad"), 
@@ -66,7 +66,7 @@ public final class CompraDAOImpl extends CompraDAO {
 	}
 
 	@Override
-	public boolean insertCompra(Compra nuevaCompra) {
+	public boolean insertCompra(Tarea nuevaCompra) {
 		boolean exito = false;
 
 		try {
@@ -130,7 +130,7 @@ public final class CompraDAOImpl extends CompraDAO {
 	}
 
 	@Override
-	public boolean updateCompra(Compra compra) {
+	public boolean updateCompra(Tarea compra) {
 		// TODO Auto-generated method stub
 		return false;
 	}

@@ -2,33 +2,33 @@ package com.netmind.db;
 
 import java.util.List;
 
-import com.netmind.models.Maquillaje;
+import com.netmind.models.Proyecto;
 
-public final class MaquillajeDAOImplMongo extends MaquillajeDAO {
+public final class ProyectosDAOImplMongo extends ProyectosDAO {
 	
-	private static MaquillajeDAOImplMongo instance = null;
+	private static ProyectosDAOImplMongo instance = null;
 
-	public static MaquillajeDAOImplMongo getInstance() {
+	public static ProyectosDAOImplMongo getInstance() {
 		if (instance == null) {
-			instance = new MaquillajeDAOImplMongo();
+			instance = new ProyectosDAOImplMongo();
 		}
 		return instance;
 	}
 	
 	@Override
-	public Maquillaje getMaquillaje(int mid) {
+	public Proyecto getMaquillaje(int mid) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Maquillaje> getUserMaquillajes(int uid) {
+	public List<Proyecto> getUserMaquillajes(int uid) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Maquillaje> getMaquillajes() {
+	public List<Proyecto> getMaquillajes() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -40,13 +40,13 @@ public final class MaquillajeDAOImplMongo extends MaquillajeDAO {
 	}
 
 	@Override
-	public boolean insertMaquillaje(Maquillaje cosmetico) {
+	public boolean insertMaquillaje(Proyecto cosmetico) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean updateMaquillaje(Maquillaje cosmetico) {
+	public boolean updateMaquillaje(Proyecto cosmetico) {
 		// TODO Auto-generated method stub
 		return false;
 	}
