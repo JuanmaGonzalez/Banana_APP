@@ -12,12 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.netmind.db.CompraDAO;
-import com.netmind.db.CompraDAOImpl;
-import com.netmind.db.MaquillajeDAO;
-import com.netmind.db.MaquillajeDAOImpl;
-import com.netmind.models.Compra;
-import com.netmind.models.Maquillaje;
+import com.netmind.db.TareasDAO;
+import com.netmind.db.TareasDAOImpl;
+import com.netmind.db.ProyectosDAO;
+import com.netmind.db.ProyectosDAOImpl;
+import com.netmind.models.Tarea;
+import com.netmind.models.Proyecto;
 import com.netmind.models.Usuario;
 
 @WebServlet("/comprar")
@@ -29,8 +29,8 @@ public class ComprarServlet extends HttpServlet {
 		HttpSession misession = (HttpSession) request.getSession();
 
 		if (misession.getAttribute("usuario") != null) {
-			MaquillajeDAO mDAO=(MaquillajeDAO)MaquillajeDAOImpl.getInstance();
-			List<Maquillaje> listaMaquillajes = mDAO.getMaquillajes();
+			ProyectosDAO mDAO=(ProyectosDAO)ProyectosDAOImpl.getInstance();
+			List<Proyecto> listaMaquillajes = mDAO.getMaquillajes();
 			request.setAttribute("listaMaquillajesAMostrar", listaMaquillajes);
 
 			request.getRequestDispatcher("comprar.jsp").forward(request, response);
@@ -54,15 +54,15 @@ public class ComprarServlet extends HttpServlet {
 			if (cosmetico > 0 && cantidad > 0) {
 
 				Usuario elUsuario = (Usuario) misession.getAttribute("usuario");
-				MaquillajeDAO mDAO=(MaquillajeDAO)MaquillajeDAOImpl.getInstance();
-				CompraDAO cDAO=(CompraDAO)CompraDAOImpl.getInstance();
+				ProyectosDAO mDAO=(ProyectosDAO)ProyectosDAOImpl.getInstance();
+				TareasDAO cDAO=(TareasDAO)TareasDAOImpl.getInstance();
 
 				Calendar today = Calendar.getInstance();
 				Date todayDate = today.getTime();
 				
-				Maquillaje unMaq= mDAO.getMaquillaje(cosmetico);
+				Proyecto unMaq= mDAO.getMaquillaje(cosmetico);
 
-				Compra nuevaCompra = new Compra(0, elUsuario, unMaq, cantidad, todayDate);
+				Tarea nuevaCompra = new Tarea(0, elUsuario, unMaq, cantidad, todayDate);
 
 				if (!cDAO.insertCompra(nuevaCompra)) {
 					request.setAttribute("error", "No se ha podido terminar el proceso :-(. Vuelve a intentarlo...");

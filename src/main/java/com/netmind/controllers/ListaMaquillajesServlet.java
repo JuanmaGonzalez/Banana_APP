@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.netmind.db.MaquillajeDAO;
-import com.netmind.db.MaquillajeDAOImpl;
-import com.netmind.models.Maquillaje;
+import com.netmind.db.ProyectosDAO;
+import com.netmind.db.ProyectosDAOImpl;
+import com.netmind.models.Proyecto;
 import com.netmind.models.Usuario;
 
 @WebServlet("/lista_maquillajes")
@@ -26,9 +26,9 @@ public class ListaMaquillajesServlet extends HttpServlet {
 		
 		if( misession.getAttribute("usuario")!=null ){
 			Usuario elUsuario=(Usuario) misession.getAttribute("usuario");
-			MaquillajeDAO mDAO=(MaquillajeDAO)MaquillajeDAOImpl.getInstance();
+			ProyectosDAO mDAO=(ProyectosDAO)ProyectosDAOImpl.getInstance();
 			
-			List<Maquillaje> listaMaquillajes = mDAO.getUserMaquillajes(elUsuario.getUid() );
+			List<Proyecto> listaMaquillajes = mDAO.getUserMaquillajes(elUsuario.getUid() );
 			request.setAttribute("listaMaquillajesAMostrar", listaMaquillajes);
 			
 			request.getRequestDispatcher("plantilla_maquillajes.jsp").forward(request, response);
