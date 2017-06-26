@@ -13,7 +13,7 @@
 			<h5>Le corresponde esta lista de Tareas</h5>
 
 			<table
-				class="responsive-table highlight  light-green lighten-5 z-depth-3">
+				class="responsive-table highlight light-green lighten-5 z-depth-3">
 				<thead>
 					<tr>
 						<th>Código</th>

@@ -13,7 +13,7 @@
 			<h5>Aquí está la lista de Proyectos:</h5>
 
 			<table
-				class="responsive-table highlight  light-green lighten-5 z-depth-3">
+				class="responsive-table highlight light-green lighten-5 z-depth-3">
 				<thead>
 					<tr>
 						<th>Código</th>
@@ -32,9 +32,7 @@
 						<td>${proy.titulo}</td>
 						<td>${proy.fechainicio}</td>
 						<td>${proy.estado}</td>
-						<td><a href="detalle_proyecto.jsp"
-							class="waves-effect waves-light btn"><i
-								class="material-icons">list</i></a></td>
+						<td><a href="detalle_proyecto.jsp" class="btn btn-floating"><i class="material-icons">list</i></a></td>
 					</tr>
 
 				</c:forEach>
