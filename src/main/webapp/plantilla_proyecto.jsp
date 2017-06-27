@@ -5,8 +5,11 @@
 <html lang="en">
 <jsp:include page="head.jsp"></jsp:include>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
 
+   <form method="GET" action="detalle_proyecto"  >
+
+	<jsp:include page="header.jsp"></jsp:include>  
+    
 	<section class="container">
 		<div class="section">
 			<h6>Hola ${usuario.nombre}</h6>
@@ -15,6 +18,8 @@
 			<table class="responsive-table highlight light-green lighten-5 z-depth-3">
 				<thead>
 					<tr>
+						<th>Id Usuario</th>
+						<th>Id Proyectos</th>
 						<th>Código</th>
 						<th>Título</th>
 						<th>Fecha de Inicio</th>
@@ -22,16 +27,18 @@
 						<th>Detalle</th>
 					</tr>
 				</thead>
-
+		
 				<c:forEach var="proy" items="${listaProyectosMostrar}"
 					varStatus="counter">
 
 					<tr>
+						<td>${proy.uid}</td>
+						<td>${proy.pid}</td>
 						<td>${proy.codigo}</td>
 						<td>${proy.titulo}</td>
 						<td>${proy.fechainicio}</td>
 						<td>${proy.estado}</td>
-						<td><a href="detalle_proyecto.jsp" class="btn btn-floating"><i class="material-icons">list</i></a></td>
+						<td><a href="/detalle_proyecto" class="btn btn-floating"><i class="material-icons">list</i></a></td>
 					</tr>
 
 				</c:forEach>
@@ -51,5 +58,7 @@
 	</section>
 
 	<jsp:include page="footer.jsp"></jsp:include>
+	
+	</form>
 </body>
 </html>

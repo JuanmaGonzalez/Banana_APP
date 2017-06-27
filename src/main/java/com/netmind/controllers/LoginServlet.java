@@ -26,7 +26,8 @@ public class LoginServlet extends HttpServlet {
 		HttpSession misession= (HttpSession)request.getSession();
 		
 		if( misession.getAttribute("usuario")!=null ){
-			request.getRequestDispatcher("/lista_maquillajes").forward(request, response);
+			request.getRequestDispatcher("/lista_proyectos").forward(request, response);
+			//request.getRequestDispatcher("/lista_maquillajes").forward(request, response);
 		}else{
 			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 			rd.forward(request, response);
@@ -45,7 +46,8 @@ public class LoginServlet extends HttpServlet {
 			HttpSession misession= (HttpSession)request.getSession();
 			misession.setAttribute("usuario", elUsuario);
 			
-			request.getRequestDispatcher("/lista_maquillajes").forward(request, response);
+			request.getRequestDispatcher("/lista_proyectos").forward(request, response);
+			//request.getRequestDispatcher("/lista_maquillajes").forward(request, response);
 		}else{
 			request.setAttribute("mierror", "Email y contraseña erroneos");
 			doGet(request, response);

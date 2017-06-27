@@ -2,14 +2,14 @@ package com.netmind.models;
 
 import java.util.Date;
 
-public class Tarea {
+public class tareas {
 	private int tid;
 	private int uid;
 	private int pid;
 	private String tarea;
 	private Date fecha;
 	
-	public Tarea(int tid, int uid, int pid, String tarea, Date fecha) {
+	public tareas(int tid, int uid, int pid, String tarea, Date fecha) {
 		super();
 		this.tid = tid;
 		this.uid = uid;

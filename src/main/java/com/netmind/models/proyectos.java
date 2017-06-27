@@ -2,7 +2,7 @@ package com.netmind.models;
 
 import java.util.Date;
 
-public class Proyecto {
+public class proyectos {
 	
 	private int pid;
 	private int uid;
@@ -12,7 +12,7 @@ public class Proyecto {
 	private Date fechafin;
 	private boolean estado ;
 	
-	public Proyecto(int pid,int uid, String codigo,  String titulo,Date fechainicio, Date fechafin, boolean estado) {
+	public proyectos(int pid,int uid, String codigo,  String titulo,Date fechainicio, Date fechafin, boolean estado) {
 		super();
 		this.pid =  pid;
 		this.uid =  uid;
@@ -20,6 +20,7 @@ public class Proyecto {
 		this.titulo = titulo;
 		this.fechainicio = fechainicio;
 		this.fechafin = fechafin;
+		this.estado = estado;
 	}
 	
 	public int getPid() {
@@ -64,7 +65,8 @@ public class Proyecto {
 	public void setFechafin(Date fechafin) {
 		this.fechafin = fechafin;
 	}
-	public boolean estado() {
+	
+	public boolean getestado() {
 		return estado;
 	}
 	public void setestado(boolean estado) {

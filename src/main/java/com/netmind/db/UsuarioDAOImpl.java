@@ -26,7 +26,7 @@ public final class UsuarioDAOImpl extends UsuarioDAO {
 		try {
 			Connection conn = datasource.getConnection();
 			// ordenes sql
-			String sql = "SELECT u.* FROM usuario u WHERE u.email=? AND password=? LIMIT 1";
+			String sql = "SELECT u.* FROM usuarios u WHERE u.email=? AND password=? LIMIT 1";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setString(1, email);
 			pstm.setString(2, pass);
@@ -36,7 +36,7 @@ public final class UsuarioDAOImpl extends UsuarioDAO {
 			if (rs.next()) {
 
 				usuarioADevolver = new Usuario(rs.getInt("uid"), rs.getString("nombre"), rs.getString("apellido"),
-						rs.getString("email"),rs.getString("password"));
+						rs.getString("email"), rs.getString("password"));
 			}
 
 			pstm.close();
@@ -77,16 +77,16 @@ public final class UsuarioDAOImpl extends UsuarioDAO {
 		try {
 			Connection conn = datasource.getConnection();
 			// ordenes sql
-			String sql = "SELECT u.* FROM usuario u WHERE u.uid=?LIMIT 1";
+			String sql = "SELECT u.* FROM usuarios u WHERE u.uid=?LIMIT 1";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, uid);
 
 			ResultSet rs = pstm.executeQuery();
-
+			
 			if (rs.next()) {
 
 				usuarioADevolver = new Usuario(rs.getInt("uid"), rs.getString("nombre"), rs.getString("apellido"),
-						rs.getString("email"),rs.getString("password") );
+						rs.getString("email"), rs.getString("password"));
 			}
 
 			pstm.close();

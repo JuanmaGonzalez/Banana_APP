@@ -3,7 +3,7 @@
 <Context>
     <!-- Specify a JDBC datasource -->
     <Resource name="jdbc/Mosqueterosdb" auth="Container"
-        type="javax.sql.DataSource" username="root" password=".sebastian."
+        type="javax.sql.DataSource" username="root" password="root"
         driverClassName="com.mysql.jdbc.Driver"
         url="jdbc:mysql://localhost/mosqueteros?SSL=false"
         maxActive="10" maxIdle="4" />

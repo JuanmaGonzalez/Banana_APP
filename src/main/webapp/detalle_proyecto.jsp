@@ -9,7 +9,7 @@
 
 	<section class="container">
 		<div class="section">
-			<h6>Para el proyecto ${proyectos.titulo}</h6>
+			<h6>Para el proyecto ${proyectoUserAMostrar.titulo}</h6>
 			<h5>Le corresponde esta lista de Tareas</h5>
 
 			<table
