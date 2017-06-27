@@ -45,19 +45,12 @@ public class TareaServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession misession = (HttpSession) request.getSession();
-
-		
-		// Crear Tarea Usuario
-		
+		HttpSession misession = (HttpSession) request.getSession();		
 		
 		if (misession.getAttribute("usuario") != null) {
 
 			int pid = request.getParameter("proyecto") != null
 					? Integer.parseInt(request.getParameter("proyecto")) : 0;
-					
-			//int cantidad = request.getParameter("cantidad") != null
-			//		? Integer.parseInt(request.getParameter("cantidad")) : 0;
 
 			if (pid > 0) {
 
@@ -72,15 +65,14 @@ public class TareaServlet extends HttpServlet {
 				
 				int cantidad = 0;
 
-				// Poner la tarea con los campos correctos......
-				// int tid, int uid, int pid, String tarea, Date fecha
+				
 				tareas nuevaTarea = new tareas((Integer) null, elUsuario.getUid() , pid, "Tarea 1" ,  todayDate);
 
 				if (!TDAO.insertarTarea(nuevaTarea)) {
 					request.setAttribute("error", "No se ha podido terminar el proceso :-(. Vuelve a intentarlo...");
 					doGet(request, response);
 				} else {
-					request.getRequestDispatcher("lista_maquillajes").forward(request, response);
+					request.getRequestDispatcher("lista_proyectos").forward(request, response);
 				}
 				
 			} else {

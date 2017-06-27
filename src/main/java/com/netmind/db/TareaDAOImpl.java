@@ -34,8 +34,6 @@ public final class TareaDAOImpl extends TareaDAO {
 			String sql = "SELECT t.* FROM tareas t WHERE t.pid= ? ";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, pid);
-			
-			//UsuarioDAO uDAO=(UsuarioDAO)UsuarioDAOImpl.getInstance();
 
 			ResultSet rs = pstm.executeQuery();
 			
@@ -81,8 +79,6 @@ public final class TareaDAOImpl extends TareaDAO {
 				pstm.setInt(2, nuevaTarea.getPid());
 				pstm.setString(3, nuevaTarea.getTarea());
 				pstm.setDate(4, (java.sql.Date) nuevaTarea.getFechafin());
-
-				//SimpleDateFormat sdfr = new SimpleDateFormat("yyyyMMdd");
 
 				int rows = pstm.executeUpdate();
 

@@ -37,9 +37,6 @@ public class DetalleProyectosServlets extends HttpServlet {
 		ProyectoDAO pDAO = (ProyectoDAO) ProyectoDAOImpl.getInstance();
 		TareaDAO tDAO = (TareaDAO) TareaDAOImpl.getInstance();
 
-		// List<proyectos> listaProyecto = (List<proyectos>) pDAO.getProyecto(
-		// Integer.parseInt(idProyecto) );
-
 		logger.info("Entrada en Detalle Proyecto: ID PROYECTO " + idProyecto);
 
 		if (idProyecto != null) {
