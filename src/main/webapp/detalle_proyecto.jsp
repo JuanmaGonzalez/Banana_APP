@@ -27,10 +27,10 @@
 					varStatus="counter">
 
 					<tr>
-						<td>${tareas.codigo}</td>
+						<td>${tareas.tid}</td>
 						<td>${tareas.tarea}</td>
 						<td>${tareas.uid}</td>
-						<td>${tareas.fechainicio}</td>
+						<td>${tareas.fechafin}</td>
 					</tr>
 
 				</c:forEach>

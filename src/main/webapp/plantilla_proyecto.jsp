@@ -38,7 +38,7 @@
 						<td>${proy.titulo}</td>
 						<td>${proy.fechainicio}</td>
 						<td>${proy.estado}</td>
-						<td><a href="/detalle_proyecto" class="btn btn-floating"><i class="material-icons">list</i></a></td>
+						<td><a href="detalle_proyecto?pid=${proy.pid}" class="btn btn-floating"><i class="material-icons">list</i></a></td>
 					</tr>
 
 				</c:forEach>

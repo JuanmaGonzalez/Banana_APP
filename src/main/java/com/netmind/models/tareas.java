@@ -7,15 +7,15 @@ public class tareas {
 	private int uid;
 	private int pid;
 	private String tarea;
-	private Date fecha;
+	private Date fechafin;
 	
-	public tareas(int tid, int uid, int pid, String tarea, Date fecha) {
+	public tareas(int tid, int uid, int pid, String tarea, Date fechafin) {
 		super();
 		this.tid = tid;
 		this.uid = uid;
 		this.pid = pid;
 		this.tarea = tarea;
-		this.fecha = fecha;
+		this.fechafin = fechafin;
 	}
 	
 	public int getTid() {
@@ -50,12 +50,12 @@ public class tareas {
 		this.tarea = tarea;
 	}
 
-	public Date getFecha() {
-		return fecha;
+	public Date getFechafin() {
+		return fechafin;
 	}
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+	public void setFechafin(Date fechafin) {
+		this.fechafin = fechafin;
 	}
 	
 }

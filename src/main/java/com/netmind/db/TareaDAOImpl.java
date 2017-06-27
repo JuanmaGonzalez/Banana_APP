@@ -41,7 +41,7 @@ public final class TareaDAOImpl extends TareaDAO {
 			
 			while (rs.next()) {
 				listTADevolver.add(new tareas(rs.getInt("tid"), rs.getInt("uid"),  rs.getInt("pid"), rs.getString("tarea"),	
-						rs.getDate("fecha")));
+						rs.getDate("fechafin")));
 			}
 
 			pstm.close();
@@ -80,7 +80,7 @@ public final class TareaDAOImpl extends TareaDAO {
 				pstm.setInt(1, nuevaTarea.getUid());
 				pstm.setInt(2, nuevaTarea.getPid());
 				pstm.setString(3, nuevaTarea.getTarea());
-				pstm.setDate(4, (java.sql.Date) nuevaTarea.getFecha());
+				pstm.setDate(4, (java.sql.Date) nuevaTarea.getFechafin());
 
 				//SimpleDateFormat sdfr = new SimpleDateFormat("yyyyMMdd");
 

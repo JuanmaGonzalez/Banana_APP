@@ -24,49 +24,57 @@ import com.netmind.models.tareas;;
 @WebServlet("/detalle_proyecto")
 public class DetalleProyectosServlets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger logger=Logger.getLogger("DetalleProyectosServlets");
+	private static Logger logger = Logger.getLogger("DetalleProyectosServlets");
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession misession = (HttpSession) request.getSession();
-		
-		ArrayList<tareas> lisTareasUser = new ArrayList<tareas>();	
+
+		ArrayList<tareas> lisTareasUser = new ArrayList<tareas>();
 		String idProyecto = request.getParameter("pid");
-		
-		Usuario elUsuario=(Usuario) misession.getAttribute("usuario");
-		ProyectoDAO pDAO=(ProyectoDAO)ProyectoDAOImpl.getInstance();		
-		TareaDAO tDAO = (TareaDAO)TareaDAOImpl.getInstance();
-		
-		//List<proyectos> listaProyecto = (List<proyectos>) pDAO.getProyecto( Integer.parseInt(idProyecto) );
-		
-		proyectos proyecto = pDAO.getProyecto( Integer.parseInt(idProyecto) );
 
-		logger.info("Entrada en Detalle Proyecto: Hay Proyecto encontrado: " + proyecto.gettitulo() );
-		
-		if (proyecto != null) {
-			
-			logger.info("Entrada en Detalle Proyecto: Hay Proyecto encontrado: " + idProyecto );
-			
-			SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-			
-			List<tareas> listaTareas = tDAO.getTareas( proyecto.getPid() );
-			
-			request.setAttribute("proyectoUserAMostrar",  proyecto);
+		Usuario elUsuario = (Usuario) misession.getAttribute("usuario");
+		ProyectoDAO pDAO = (ProyectoDAO) ProyectoDAOImpl.getInstance();
+		TareaDAO tDAO = (TareaDAO) TareaDAOImpl.getInstance();
 
-			request.setAttribute("listaTareasMostrar", listaTareas);
+		// List<proyectos> listaProyecto = (List<proyectos>) pDAO.getProyecto(
+		// Integer.parseInt(idProyecto) );
 
-			request.getRequestDispatcher("detalle_proyecto.jsp").forward(request, response);
+		logger.info("Entrada en Detalle Proyecto: ID PROYECTO " + idProyecto);
 
-			
+		if (idProyecto != null) {
+
+			proyectos proyecto = pDAO.getProyecto(Integer.parseInt(idProyecto));
+
+			logger.info("Entrada en Detalle Proyecto: Hay Proyecto encontrado: " + proyecto.gettitulo());
+
+			if (proyecto != null) {
+
+				logger.info("Entrada en Detalle Proyecto: Hay Proyecto encontrado: " + idProyecto);
+
+				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+
+				List<tareas> listaTareas = tDAO.getTareas(proyecto.getPid());
+
+				request.setAttribute("proyectoUserAMostrar", proyecto);
+
+				request.setAttribute("listaTareasMostrar", listaTareas);
+
+				request.getRequestDispatcher("detalle_proyecto.jsp").forward(request, response);
+
+			} else {
+
+				misession.invalidate();
+				response.sendRedirect("login");
+
+			}
+
 		} else {
-
-			misession.invalidate();
-			response.sendRedirect("login");
-
+			logger.info("Entrada en Detalle Proyecto: PID  " + idProyecto);
+			request.getRequestDispatcher("plantilla_proyecto.jsp").forward(request, response);
 		}
-	}		
-		
- 
+
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
